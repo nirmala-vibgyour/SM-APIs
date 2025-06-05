@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const express = require('express');
 const sequelize = require('./config/db');
 const routeSchool = require('./routes/routeSchool');
@@ -10,7 +10,7 @@ app.use(express.json());
 app.use('/api', routeSchool);
 
 // Connect to DB and Listen to port
-sequelize.sync({alter:true})
+sequelize.sync()
     .then(()=>{
         console.log('DB Synced!!');
         const PORT = 3000;
